@@ -18,4 +18,8 @@ public class DoctorService {
     public List<Doctor> getAll() {
         return doctorRepository.findAll();
     }
+
+    public void deleDoctor(Long id) {
+        this.doctorRepository.deleteById(id);
+    }
 }

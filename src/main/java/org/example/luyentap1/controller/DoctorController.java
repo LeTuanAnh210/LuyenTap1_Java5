@@ -6,6 +6,7 @@ import org.example.luyentap1.service.DoctorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -23,5 +24,11 @@ public class DoctorController {
         List<Doctor> doctors = doctorService.getAll();
         model.addAttribute("doctors", doctors);
         return "views/doctors";
+    }
+
+    @GetMapping("/doctors/deleteDoctor/{id}")
+    public String deleteDoctor(@PathVariable("id") Long id){
+        doctorService.deleDoctor(id);
+        return "redirect:/doctors";
     }
 }
