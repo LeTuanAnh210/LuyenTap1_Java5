@@ -1,5 +1,6 @@
 package org.example.luyentap1.service;
 
+import jakarta.validation.Valid;
 import lombok.Setter;
 import org.example.luyentap1.entity.Doctor;
 import org.example.luyentap1.repository.DoctorRepository;
@@ -21,5 +22,9 @@ public class DoctorService {
 
     public void deleDoctor(Long id) {
         this.doctorRepository.deleteById(id);
+    }
+
+    public void saveDoctor(@Valid Doctor doctor) {
+        doctorRepository.save(doctor);
     }
 }
